@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ki Suro - Padepokan & Konsultasi Spiritual Nusantara</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            100: '#FFF8E7',
+                            300: '#FFE08A',
+                            400: '#F3C043',
+                            500: '#D4AF37', // Classic Gold
+                            600: '#AA820A',
+                            700: '#856404',
+                        },
+                        dark: {
+                            900: '#0A0A0C',
+                            800: '#121216',
+                            700: '#1A1A22',
+                            600: '#262633',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A0A0C;
+            color: #E2E8F0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .text-gold-gradient {
+            background: linear-[#D4AF37], linear-gradient(135deg, #FFE08A 0%, #D4AF37 50%, #997400 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-gold-gradient {
+            background: linear-gradient(135deg, #F3C043 0%, #D4AF37 50%, #997400 100%);
+        }
+        .bg-gold-dark-gradient {
+            background: linear-gradient(135deg, rgba(212,175,55,0.15) 0%, rgba(18,18,22,0.8) 100%);
+        }
+        .border-gold-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+        }
+        .border-gold-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+        }
+        /* Custom styling for sleek carousel scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden selection:bg-gold-500 selection:text-black relative">
+
+    <!-- Background Image Rotating Slideshow -->
+    <div id="bg-slideshow" class="fixed inset-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
+        <div class="bg-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-100" style="background-image: url('https://iili.io/CvwxC57.jpg');"></div>
+        <div class="bg-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://iili.io/CvwxBJS.jpg');"></div>
+        <div class="bg-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://iili.io/Cvwxfg2.jpg');"></div>
+        <div class="bg-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://iili.io/Cvwxne9.jpg');"></div>
+        <div class="bg-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://iili.io/Cvwxobe.jpg');"></div>
+        <div class="bg-slide absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://iili.io/Cvwxzzu.jpg');"></div>
+        <!-- Dark Overlay Gradient for Legibility -->
+        <div class="absolute inset-0 bg-dark-900/85 backdrop-blur-[1px]"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-dark-900/90 backdrop-blur-md border-b border-gold-500/20 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo -->
+                <a href="#home" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full border-2 border-gold-500 flex items-center justify-center bg-dark-800 text-gold-500 shadow-md">
+                        <i class="fa-solid me-0.5 fa-yin-yang text-xl animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-extrabold text-xl sm:text-2xl tracking-wider text-gold-gradient">KI SURO</span>
+                        <span class="block text-[10px] text-gray-400 uppercase tracking-widest -mt-1">Konsultasi Spiritual & Buka Aura</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#home" class="hover:text-gold-400 transition-colors">Beranda</a>
+                    <a href="#tentang" class="hover:text-gold-400 transition-colors">Profil Ki Suro</a>
+                    <a href="#layanan" class="hover:text-gold-400 transition-colors">Layanan</a>
+                    <a href="#harga" class="hover:text-gold-400 transition-colors">Daftar Paket</a>
+                    <a href="#testimoni" class="hover:text-gold-400 transition-colors">Testimoni</a>
+                    <a href="#faq" class="hover:text-gold-400 transition-colors">FAQ</a>
+                </nav>
+
+                <!-- Header CTA Button -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="#reservasi" class="bg-gold-gradient text-dark-900 font-bold px-5 py-2.5 rounded-full text-sm hover:opacity-90 transition-all transform hover:scale-105 shadow-lg shadow-gold-500/20 flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Konsultasi Sekarang</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-gold-400 focus:outline-none p-2" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Nav -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-gold-500/20 px-4 pt-3 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block py-2 px-3 rounded hover:bg-dark-700 text-gold-300">Beranda</a>
+            <a href="#tentang" class="mobile-nav-link block py-2 px-3 rounded hover:bg-dark-700 text-gray-300">Profil Ki Suro</a>
+            <a href="#layanan" class="mobile-nav-link block py-2 px-3 rounded hover:bg-dark-700 text-gray-300">Layanan</a>
+            <a href="#harga" class="mobile-nav-link block py-2 px-3 rounded hover:bg-dark-700 text-gray-300">Daftar Paket & Harga</a>
+            <a href="#testimoni" class="mobile-nav-link block py-2 px-3 rounded hover:bg-dark-700 text-gray-300">Testimoni Klien</a>
+            <a href="#faq" class="mobile-nav-link block py-2 px-3 rounded hover:bg-dark-700 text-gray-300">FAQ</a>
+            <a href="#reservasi" class="mobile-nav-link block w-full text-center bg-gold-gradient text-dark-900 font-bold py-2.5 rounded-full mt-2">
+                <i class="fa-brands fa-whatsapp mr-2"></i> Hubungi Langsung
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-28 pb-20 md:pt-36 md:pb-32 overflow-hidden bg-gradient-to-b from-dark-900 via-dark-800 to-dark-900">
+        <!-- Background Decorative Ornaments -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gold-500 blur-[150px]"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <div class="mb-8 bg-dark-800/40 backdrop-blur-md border border-gold-500/30 rounded-2xl p-4 shadow-2xl">
+                <div class="flex items-center justify-between mb-3 px-2">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-images text-gold-400"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-gold-300">Galeri Suasana Padepokan (Klik Thumbnail Untuk Ganti Background)</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button id="carousel-prev" class="w-8 h-8 rounded-full bg-dark-900/80 border border-gold-500/40 text-gold-400 hover:bg-gold-500 hover:text-dark-900 transition-all flex items-center justify-center text-xs shadow-md">
+                            <i class="fa-solid fa-chevron-left"></i>
+                        </button>
+                        <button id="carousel-next" class="w-8 h-8 rounded-full bg-dark-900/80 border border-gold-500/40 text-gold-400 hover:bg-gold-500 hover:text-dark-900 transition-all flex items-center justify-center text-xs shadow-md">
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Carousel Thumbnails Container -->
+                <div id="thumb-carousel" class="flex gap-3 sm:gap-4 overflow-x-auto scroll-smooth no-scrollbar py-2 px-1">
+                    <div class="thumb-item shrink-0 w-28 sm:w-36 h-20 sm:h-24 rounded-xl overflow-hidden border-2 border-gold-500/30 hover:border-gold-400 cursor-pointer transition-all transform hover:scale-105 relative group shadow-lg" onclick="switchBgSlide(0)">
+                        <img src="https://iili.io/CvwxC57.jpg" alt="Galeri Ki Suro 1" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 bg-dark-900/30 group-hover:bg-transparent transition-all"></div>
+                        <span class="absolute bottom-1 right-1 bg-dark-900/80 text-gold-400 text-[9px] font-bold px-1.5 py-0.5 rounded border border-gold-500/30">#1</span>
+                    </div>
+                    <div class="thumb-item shrink-0 w-28 sm:w-36 h-20 sm:h-24 rounded-xl overflow-hidden border-2 border-gold-500/30 hover:border-gold-400 cursor-pointer transition-all transform hover:scale-105 relative group shadow-lg" onclick="switchBgSlide(1)">
+                        <img src="https://iili.io/CvwxBJS.jpg" alt="Galeri Ki Suro 2" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 bg-dark-900/30 group-hover:bg-transparent transition-all"></div>
+                        <span class="absolute bottom-1 right-1 bg-dark-900/80 text-gold-400 text-[9px] font-bold px-1.5 py-0.5 rounded border border-gold-500/30">#2</span>
+                    </div>
+                    <div class="thumb-item shrink-0 w-28 sm:w-36 h-20 sm:h-24 rounded-xl overflow-hidden border-2 border-gold-500/30 hover:border-gold-400 cursor-pointer transition-all transform hover:scale-105 relative group shadow-lg" onclick="switchBgSlide(2)">
+                        <img src="https://iili.io/Cvwxfg2.jpg" alt="Galeri Ki Suro 3" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 bg-dark-900/30 group-hover:bg-transparent transition-all"></div>
+                        <span class="absolute bottom-1 right-1 bg-dark-900/80 text-gold-400 text-[9px] font-bold px-1.5 py-0.5 rounded border border-gold-500/30">#3</span>
+                    </div>
+                    <div class="thumb-item shrink-0 w-28 sm:w-36 h-20 sm:h-24 rounded-xl overflow-hidden border-2 border-gold-500/30 hover:border-gold-400 cursor-pointer transition-all transform hover:scale-105 relative group shadow-lg" onclick="switchBgSlide(3)">
+                        <img src="https://iili.io/Cvwxne9.jpg" alt="Galeri Ki Suro 4" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 bg-dark-900/30 group-hover:bg-transparent transition-all"></div>
+                        <span class="absolute bottom-1 right-1 bg-dark-900/80 text-gold-400 text-[9px] font-bold px-1.5 py-0.5 rounded border border-gold-500/30">#4</span>
+                    </div>
+                    <div class="thumb-item shrink-0 w-28 sm:w-36 h-20 sm:h-24 rounded-xl overflow-hidden border-2 border-gold-500/30 hover:border-gold-400 cursor-pointer transition-all transform hover:scale-105 relative group shadow-lg" onclick="switchBgSlide(4)">
+                        <img src="https://iili.io/Cvwxobe.jpg" alt="Galeri Ki Suro 5" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 bg-dark-900/30 group-hover:bg-transparent transition-all"></div>
+                        <span class="absolute bottom-1 right-1 bg-dark-900/80 text-gold-400 text-[9px] font-bold px-1.5 py-0.5 rounded border border-gold-500/30">#5</span>
+                    </div>
+                    <div class="thumb-item shrink-0 w-28 sm:w-36 h-20 sm:h-24 rounded-xl overflow-hidden border-2 border-gold-500/30 hover:border-gold-400 cursor-pointer transition-all transform hover:scale-105 relative group shadow-lg" onclick="switchBgSlide(5)">
+                        <img src="https://iili.io/Cvwxzzu.jpg" alt="Galeri Ki Suro 6" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="absolute inset-0 bg-dark-900/30 group-hover:bg-transparent transition-all"></div>
+                        <span class="absolute bottom-1 right-1 bg-dark-900/80 text-gold-400 text-[9px] font-bold px-1.5 py-0.5 rounded border border-gold-500/30">#6</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-300 text-xs sm:text-sm font-semibold tracking-wide uppercase mb-6">
+                        <i class="fa-solid fa-star text-gold-400"></i>
+                        <span>Praktisi Spiritual & Metafisika Terpercaya</span>
+                    </div>
+
+                    <h1 class="font-heading text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight mb-6">
+                        Menata Kembali <span class="text-gold-gradient">Keharmonisan, Rezeki & Aura</span> Diri Anda
+                    </h1>
+
+                    <p class="text-gray-300 text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto lg:mx-0">
+                        Pintu kebaikan dan jalan keluar dari setiap kebuntuan hidup. Ki Suro siap mendampingi Anda melewati masalah asmara, karir, bisnis, pembersihan energi negatif, hingga buka aura secara bijak, amanah, dan terjamin kerahasiaannya.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#harga" class="bg-gold-gradient text-dark-900 font-bold px-8 py-4 rounded-xl text-center hover:opacity-90 transition-all shadow-xl shadow-gold-500/20 flex items-center justify-center gap-3">
+                            <span>Lihat Paket & Tarif</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#reservasi" class="border border-gold-500/40 hover:border-gold-400 text-gold-300 font-semibold px-8 py-4 rounded-xl text-center bg-dark-700/50 hover:bg-dark-700 transition-all flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-xl text-green-400"></i>
+                            <span>Jadwal Konsultasi Private</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Indicators -->
+                    <div class="mt-10 pt-8 border-t border-gray-800 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <div class="font-heading text-2xl sm:text-3xl font-bold text-gold-400">15+ Thn</div>
+                            <div class="text-xs sm:text-sm text-gray-400 mt-1">Pengalaman Praktisi</div>
+                        </div>
+                        <div>
+                            <div class="font-heading text-2xl sm:text-3xl font-bold text-gold-400">3.500+</div>
+                            <div class="text-xs sm:text-sm text-gray-400 mt-1">Klien Terbantu</div>
+                        </div>
+                        <div>
+                            <div class="font-heading text-2xl sm:text-3xl font-bold text-gold-400">100%</div>
+                            <div class="text-xs sm:text-sm text-gray-400 mt-1">Privasi Dijamin</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual Element -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Gold Glowing Halo -->
+                        <div class="absolute -inset-1 rounded-3xl bg-gold-gradient blur-md opacity-30"></div>
+                        <div class="relative bg-dark-800/80 backdrop-blur-md border border-gold-500/30 rounded-3xl p-6 sm:p-8 text-center shadow-2xl">
+                            <!-- Foto Utama Guru Besar -->
+                            <div class="relative w-32 h-32 mx-auto rounded-full border-4 border-gold-500 p-1 bg-dark-900 shadow-xl mb-4 overflow-hidden flex items-center justify-center group">
+                                <img id="guru-photo" src="https://iili.io/CvwxC57.jpg" alt="Ki Suro Guru Besar Padepokan" class="w-full h-full object-cover rounded-full transition-transform duration-500 group-hover:scale-110">
+                                <div class="absolute inset-0 bg-dark-900/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-full flex items-center justify-center">
+                                    <i class="fa-solid fa-sparkles text-gold-400 text-2xl"></i>
+                                </div>
+                            </div>
+                            <h3 class="font-heading text-2xl font-bold text-gold-gradient">Ki Suro Nusantara</h3>
+                            <p class="text-xs text-gold-300 uppercase tracking-widest mt-1 mb-4">Guru Besar Padepokan & Praktisi Metafisika</p>
+
+                            <!-- Mini Photo Gallery Selector in Transparent Card -->
+                            <div class="flex items-center justify-center gap-1.5 mb-5 p-2 rounded-xl bg-dark-900/70 border border-gold-500/20 backdrop-blur-sm">
+                                <span class="text-[10px] text-gray-400 font-semibold mr-1 uppercase">Galeri Foto:</span>
+                                <img src="https://iili.io/CvwxC57.jpg" onclick="changeGuruPhoto(0)" class="guru-thumb w-7 h-7 rounded-lg object-cover cursor-pointer border-2 border-gold-500 hover:scale-110 transition-all shadow-md" title="Foto 1">
+                                <img src="https://iili.io/CvwxBJS.jpg" onclick="changeGuruPhoto(1)" class="guru-thumb w-7 h-7 rounded-lg object-cover cursor-pointer border border-gold-500/30 hover:border-gold-400 hover:scale-110 transition-all shadow-md" title="Foto 2">
+                                <img src="https://iili.io/Cvwxfg2.jpg" onclick="changeGuruPhoto(2)" class="guru-thumb w-7 h-7 rounded-lg object-cover cursor-pointer border border-gold-500/30 hover:border-gold-400 hover:scale-110 transition-all shadow-md" title="Foto 3">
+                                <img src="https://iili.io/Cvwxne9.jpg" onclick="changeGuruPhoto(3)" class="guru-thumb w-7 h-7 rounded-lg object-cover cursor-pointer border border-gold-500/30 hover:border-gold-400 hover:scale-110 transition-all shadow-md" title="Foto 4">
+                                <img src="https://iili.io/Cvwxobe.jpg" onclick="changeGuruPhoto(4)" class="guru-thumb w-7 h-7 rounded-lg object-cover cursor-pointer border border-gold-500/30 hover:border-gold-400 hover:scale-110 transition-all shadow-md" title="Foto 5">
+                                <img src="https://iili.io/Cvwxzzu.jpg" onclick="changeGuruPhoto(5)" class="guru-thumb w-7 h-7 rounded-lg object-cover cursor-pointer border border-gold-500/30 hover:border-gold-400 hover:scale-110 transition-all shadow-md" title="Foto 6">
+                            </div>
+
+                            <div class="space-y-3 text-sm text-gray-300 text-left bg-dark-900/80 p-4 rounded-xl border border-gray-800">
+                                <div class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                    <span>Konsultasi tatap muka langsung & jarak jauh (Online).</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                    <span>Menggunakan metode spiritual aman, tanpa efek samping.</span>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fa-solid fa-circle-check text-gold-500 mt-1"></i>
+                                    <span>Pendampingan hingga tuntas secara profesional.</span>
+                                </div>
+                            </div>
+
+                            <a href="#tentang" class="inline-block mt-6 text-xs text-gold-400 hover:text-gold-300 underline font-semibold tracking-wider uppercase">
+                                Pelajari Profil Selengkapnya &rarr;
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="tentang" class="py-20 bg-dark-800 border-y border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 text-gold-400 text-xs font-semibold tracking-widest uppercase">
+                        Tentang Ki Suro
+                    </div>
+                    <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">
+                        Spiritual Modern Berlandaskan <span class="text-gold-gradient">Kearifan Lokal Nusantara</span>
+                    </h2>
+                    <p class="text-gray-300 leading-relaxed">
+                        Ki Suro merupakan sosok praktisi spiritual dan konsultan metafisika yang telah berpengalaman lebih dari 15 tahun membantu masyarakat dari berbagai kalangan—mulai dari pengusaha, eksekutif, hingga perorangan.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed">
+                        Menggabungkan olah batin kearifan lokal Nusantara dengan pendekatan psikologi aura modern, Ki Suro memberikan arahan yang rasional, menenangkan, serta bebas dari ajaran menyimpang. Setiap masalah disikapi dengan bijak, penuh empati, dan mengedepankan keamanan spiritual.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 bg-dark-900 rounded-xl border border-gray-800">
+                            <i class="fa-solid fa-shield-halved text-2xl text-gold-400 mb-2"></i>
+                            <h4 class="font-semibold text-white text-base">Amanah & Rahasia</h4>
+                            <p class="text-xs text-gray-400 mt-1">Privasi dan identitas klien dijamin 100% terjaga rahasianya.</p>
+                        </div>
+                        <div class="p-4 bg-dark-900 rounded-xl border border-gray-800">
+                            <i class="fa-solid fa-hands-holding-circle text-2xl text-gold-400 mb-2"></i>
+                            <h4 class="font-semibold text-white text-base">Tanpa Pantangan Berat</h4>
+                            <p class="text-xs text-gray-400 mt-1">Metode mudah dijalankan, aman tanpa efek negatif jangka panjang.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-dark-700/60 p-6 rounded-2xl border border-gold-500/20 text-center flex flex-col justify-center items-center">
+                        <div class="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-sun text-2xl text-gold-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-1">Buka Aura & Pesona</h4>
+                        <p class="text-xs text-gray-400">Memancarkan aura positif diri agar disenangi dan percaya diri.</p>
+                    </div>
+                    <div class="bg-dark-700/60 p-6 rounded-2xl border border-gold-500/20 text-center flex flex-col justify-center items-center mt-6">
+                        <div class="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-coins text-2xl text-gold-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-1">Pelaris & Rezeki</h4>
+                        <p class="text-xs text-gray-400">Membuang sengkolo/energi negatif penghambat kelancaran usaha.</p>
+                    </div>
+                    <div class="bg-dark-700/60 p-6 rounded-2xl border border-gold-500/20 text-center flex flex-col justify-center items-center -mt-6">
+                        <div class="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-heart text-2xl text-gold-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-1">Asmara & Jodoh</h4>
+                        <p class="text-xs text-gray-400">Harmonisasi hubungan pasangan, penguncian hati, dan solusi jodoh.</p>
+                    </div>
+                    <div class="bg-dark-700/60 p-6 rounded-2xl border border-gold-500/20 text-center flex flex-col justify-center items-center">
+                        <div class="w-14 h-14 rounded-full bg-gold-500/10 border border-gold-500/30 flex items-center justify-center mb-3">
+                            <i class="fa-solid fa-house-chimney-window text-2xl text-gold-400"></i>
+                        </div>
+                        <h4 class="font-bold text-white mb-1">Pembersihan Tempat</h4>
+                        <p class="text-xs text-gray-400">Ruwatan rumah, ruko, pabrik, atau lahan dari gangguan gaib.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-20 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-3">
+                    Layanan Utama
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">
+                    Solusi Bimbingan Spiritual <span class="text-gold-gradient">Terarah & Tepat</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-3">
+                    Berbagai pilihan program konsultasi dan sarana spiritual yang disesuaikan dengan permasalahan hidup Anda.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-gray-800 hover:border-gold-500/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500 group-hover:text-dark-900 transition-all">
+                        <i class="fa-solid fa-sparkles text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Buka Aura & Ruwatan Diri</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Pembersihan energi negatif (sengkolo/sial) yang mengendap pada diri, membuka daya tarik alami, kepercayaan diri, serta memancarkan daya pikat positif.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 border-t border-gray-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Terapi Pembersihan Aura</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Garam Ruwat & Doa Buka Aura</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Penyelarasan Energi Tubuh</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-gold-500/30 bg-gold-dark-gradient transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden">
+                    <div class="absolute top-4 right-4 bg-gold-500 text-dark-900 font-bold text-[10px] px-2.5 py-1 rounded-full uppercase">Paling Dicari</div>
+                    <div class="w-16 h-16 rounded-xl bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500 group-hover:text-dark-900 transition-all">
+                        <i class="fa-solid fa-briefcase text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Pelaris Usaha & Karir</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Mendorong kelancaran rezeki, melariskan dagangan, menangani persaingan tidak sehat dalam bisnis, serta mempercepat kenaikan jabatan/karir.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 border-t border-gray-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Pembersihan Tempat Usaha</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Sarana Syariat Pelaris Batin</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Proteksi Dari Pesaing Jahat</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-dark-800 rounded-2xl p-8 border border-gray-800 hover:border-gold-500/50 transition-all duration-300 group hover:-translate-y-2">
+                    <div class="w-16 h-16 rounded-xl bg-gold-500/10 border border-gold-500/30 flex items-center justify-center text-gold-400 mb-6 group-hover:bg-gold-500 group-hover:text-dark-900 transition-all">
+                        <i class="fa-solid fa-heart-circle-bolt text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold text-white mb-3">Asmara & Keharmonisan</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Solusi keretakan rumah tangga, membentengi hubungan dari pihak ketiga, memulihkan kasih sayang pasangan, serta memudahkan datangnya jodoh.
+                    </p>
+                    <ul class="text-xs text-gray-300 space-y-2 border-t border-gray-800 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Penyalinan Energi Kasih Sayang</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Pemikat / Pengunci Hati Pasangan</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gold-400"></i> Konsultasi Keretakan Keluarga</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING PACKAGES SECTION (DAFTAR HARGA PAKET) -->
+    <section id="harga" class="py-20 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-3">
+                    Transparan & Terjangkau
+                </div>
+                <h2 class="font-heading text-3xl sm:text-5xl font-bold text-white">
+                    Daftar Harga <span class="text-gold-gradient">Paket Ki Suro</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-3">
+                    Pilih paket mahar/biaya bimbingan sesuai kebutuhan masalah Anda. Bebas biaya tersembunyi.
+                </p>
+
+                <!-- Filter Category Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 mt-8" id="pricing-filters">
+                    <button data-filter="all" class="filter-btn active bg-gold-500 text-dark-900 font-bold px-5 py-2 rounded-full text-xs sm:text-sm transition-all">Semua Paket</button>
+                    <button data-filter="personal" class="filter-btn bg-dark-700 text-gray-300 hover:text-white font-medium px-5 py-2 rounded-full text-xs sm:text-sm transition-all border border-gray-700">Diri & Aura</button>
+                    <button data-filter="bisnis" class="filter-btn bg-dark-700 text-gray-300 hover:text-white font-medium px-5 py-2 rounded-full text-xs sm:text-sm transition-all border border-gray-700">Pelaris & Tempat Usaha</button>
+                    <button data-filter="asmara" class="filter-btn bg-dark-700 text-gray-300 hover:text-white font-medium px-5 py-2 rounded-full text-xs sm:text-sm transition-all border border-gray-700">Asmara & Jodoh</button>
+                </div>
+            </div>
+
+            <!-- Package Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+                
+                <!-- Package 1: Silver / Buka Aura -->
+                <div class="pkg-card personal asmara bg-dark-900 rounded-2xl p-6 border border-gray-800 flex flex-col justify-between hover:border-gold-500/40 transition-all">
+                    <div>
+                        <div class="text-xs uppercase font-bold text-gray-400 tracking-wider mb-2">Buka Aura & Ruwatan Diri</div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">PAKET SILVER</h3>
+                        <p class="text-xs text-gray-400 mb-6">Penyelarasan aura, ruwatan sengkolo, dan pemikat kasih sayang.</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-xs text-gray-400 block">Mahar Tingkat I:</span>
+                            <span class="font-heading text-3xl font-bold text-gold-400">Rp 1.350.000</span>
+                        </div>
+
+                        <ul class="text-xs text-gray-300 space-y-3 mb-8 border-t border-gray-800 pt-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Konsultasi Tatap Muka / WA (60 Menit)</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Proses Ritual Buka Aura & Ruwatan Sengkolo</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Media Garam Sinar Aura & Minyak Mahabbah</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Pendampingan Selama 14 Hari</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Paket SILVER - Rp 1.350.000')" class="w-full py-3 rounded-xl border border-gold-500/50 text-gold-300 hover:bg-gold-500 hover:text-dark-900 font-bold text-xs uppercase tracking-wider transition-all">
+                        Pilih Paket
+                    </button>
+                </div>
+
+                <!-- Package 2: Gold / Pelaris Usaha (RECOMMENDED) -->
+                <div class="pkg-card bisnis bg-dark-900 rounded-2xl p-6 border-2 border-gold-500 flex flex-col justify-between relative shadow-xl shadow-gold-500/10 hover:scale-[1.02] transition-all">
+                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gold-gradient text-dark-900 font-black text-[10px] tracking-widest px-3 py-1 rounded-full uppercase shadow">
+                        RECOMMENDED
+                    </div>
+                    <div>
+                        <div class="text-xs uppercase font-bold text-gold-400 tracking-wider mb-2">Pelaris Usaha & Karir</div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">PAKET GOLD</h3>
+                        <p class="text-xs text-gray-400 mb-6">Pembersihan tempat usaha, pelaris dagang, & pagar gaib dari saingan.</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-xs text-gray-400 block">Mahar Tingkat II:</span>
+                            <span class="font-heading text-3xl font-bold text-gold-400">Rp 2.500.000</span>
+                        </div>
+
+                        <ul class="text-xs text-gray-300 space-y-3 mb-8 border-t border-gray-800 pt-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Ritual Cleansing Tempat Usaha / Toko / Kantor</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Piranti Syariat Pelaris Dagang & Pembuka Rezeki</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Pagar Gaib Bangunan Dari Niat Buruk Pesaing</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Pendampingan Batin Selama 30 Hari</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Paket GOLD - Rp 2.500.000')" class="w-full py-3 rounded-xl bg-gold-gradient text-dark-900 font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all shadow-md">
+                        Pilih Paket
+                    </button>
+                </div>
+
+                <!-- Package 3: Platinum VIP -->
+                <div class="pkg-card personal bisnis asmara bg-dark-900 rounded-2xl p-6 border border-gray-800 flex flex-col justify-between hover:border-gold-500/40 transition-all">
+                    <div>
+                        <div class="text-xs uppercase font-bold text-gold-400 tracking-wider mb-2">Khusus VIP & Kompleks</div>
+                        <h3 class="font-heading text-2xl font-bold text-white mb-2">PLATINUM VIP</h3>
+                        <p class="text-xs text-gray-400 mb-6">Penanganan khusus tingkat tinggi, prioritas penuh & kunjungan langsung.</p>
+                        
+                        <div class="mb-6">
+                            <span class="text-xs text-gray-400 block">Mahar Tingkat VIP:</span>
+                            <span class="font-heading text-3xl font-bold text-gold-400">Rp 2.999.000</span>
+                        </div>
+
+                        <ul class="text-xs text-gray-300 space-y-3 mb-8 border-t border-gray-800 pt-6">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Private Mentoring & Konsultasi Prioritas Utama</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Ritual Khusus Custom Sesuai Hajat Klien</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Opsi Kunjungan Langsung Ki Suro ke Lokasi</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-gold-400 mt-0.5"></i>
+                                <span>Garansi Garam & Azimat Sinar Suci VIP</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <button onclick="selectPackage('Paket PLATINUM VIP - Rp 2.999.000')" class="w-full py-3 rounded-xl border border-gold-500/50 text-gold-300 hover:bg-gold-500 hover:text-dark-900 font-bold text-xs uppercase tracking-wider transition-all">
+                        Pilih Paket
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Custom Interactive Note -->
+            <div class="mt-12 bg-dark-900 p-6 rounded-2xl border border-gold-500/20 text-center max-w-2xl mx-auto">
+                <p class="text-sm text-gray-300">
+                    <i class="fa-solid fa-circle-info text-gold-400 mr-2"></i>
+                    Butuh penanganan khusus di luar paket di atas? <a href="#reservasi" class="text-gold-400 underline font-semibold">Konsultasikan kebutuhan custom Anda</a> langsung dengan Ki Suro.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Estimator Section -->
+    <section class="py-16 bg-gradient-to-r from-dark-900 via-dark-800 to-dark-900 border-y border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-dark-700/80 p-8 rounded-3xl border border-gold-500/30 shadow-2xl backdrop-blur-md">
+                <div class="text-center mb-8">
+                    <h3 class="font-heading text-2xl font-bold text-white">Bantu Saya Memilih Paket</h3>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-1">Jawab 2 pertanyaan singkat untuk rekomendasi paket terbaik.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                        <label class="block text-xs font-semibold text-gold-300 uppercase mb-2">1. Apa Fokus Utama Masalah Anda?</label>
+                        <select id="est-focus" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-200 focus:border-gold-500 focus:outline-none">
+                            <option value="aura">Pengen Aura Positif & Buang Sial</option>
+                            <option value="asmara">Masalah Asmara / Jodoh / Pasangan</option>
+                            <option value="bisnis">Pengembangan Usaha / Sepi Pembeli</option>
+                            <option value="tempat">Pembersihan Gaib Lahan / Ruko</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gold-300 uppercase mb-2">2. Metode Konsultasi Yang Diinginkan?</label>
+                        <select id="est-method" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-gray-200 focus:border-gold-500 focus:outline-none">
+                            <option value="online">Online (WhatsApp / Video Call)</option>
+                            <option value="tatapmuka">Tatap Muka di Padepokan</option>
+                            <option value="kunjungan">Ki Suro Datang ke Lokasi</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="est-result" class="bg-dark-900 p-5 rounded-2xl border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div>
+                        <span class="text-xs text-gray-400 block">Rekomendasi Paket Untuk Anda:</span>
+                        <span id="est-pkg-name" class="font-heading font-bold text-xl text-gold-gradient">PAKET SILVER (Ruwatan & Buka Aura)</span>
+                        <span id="est-pkg-price" class="block text-sm text-gold-300 font-semibold">Estimasi Mahar: Rp 1.350.000</span>
+                    </div>
+                    <button onclick="applyEstimatedPackage()" class="bg-gold-gradient text-dark-900 font-bold px-6 py-3 rounded-xl text-xs uppercase tracking-wider hover:opacity-90 transition-all shrink-0">
+                        Ambil Paket Ini &rarr;
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimoni" class="py-20 bg-dark-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-3">
+                    Pengalaman Klien
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">
+                    Kata Mereka Yang Telah <span class="text-gold-gradient">Merasakan Manfaat</span>
+                </h2>
+                <p class="text-gray-400 text-sm sm:text-base mt-2">
+                    Kisah nyata dari klien yang telah berkonsultasi dengan Ki Suro. Identitas disamarkan demi menjaga privasi.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testi 1 -->
+                <div class="bg-dark-800 p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-xs sm:text-sm italic leading-relaxed mb-6">
+                            "Usaha kuliner saya sempat sepi nyaris bangkrut 3 bulan berturut-turut. Setelah ambil Paket Gold dan dilakukan pembersihan ruko oleh Ki Suro, alhamdulillah pelanggan kembali ramai dan energi toko terasa lebih adem."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-gray-800 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm">
+                            H.S
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-semibold">H. Syaiful (42 thn)</h4>
+                            <span class="text-xs text-gray-500">Pengusaha Restoran - Jakarta</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 2 -->
+                <div class="bg-dark-800 p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-xs sm:text-sm italic leading-relaxed mb-6">
+                            "Hubungan rumah tangga saya hampir berada di ujung tanduk karena masalah komunikasi & gangguan luar. Bimbingan batin Paket Silver dari Ki Suro sangat menenangkan. Sekarang suami kembali perhatian dan harmonis."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-gray-800 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm">
+                            N.W
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-semibold">Ibu Nurwahyuni (35 thn)</h4>
+                            <span class="text-xs text-gray-500">Ibu Rumah Tangga - Surabaya</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testi 3 -->
+                <div class="bg-dark-800 p-6 rounded-2xl border border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-gold-400 gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-gray-300 text-xs sm:text-sm italic leading-relaxed mb-6">
+                            "Proses konsultasi sangat beralasan dan adem. Tidak ada paksaan aneh-aneh. Buka aura membantu saya tampil lebih percaya diri saat wawancara kerja hingga akhirnya diterima di perusahaan impian."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3 border-t border-gray-800 pt-4">
+                        <div class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center font-bold text-sm">
+                            A.R
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-semibold">Andi R. (28 thn)</h4>
+                            <span class="text-xs text-gray-500">Karyawan Swasta - Bandung</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-dark-800 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-gold-500/10 text-gold-400 text-xs font-semibold tracking-widest uppercase mb-3">
+                    Pertanyaan Umum
+                </div>
+                <h2 class="font-heading text-3xl sm:text-4xl font-bold text-white">
+                    Tanya Jawab (FAQ)
+                </h2>
+            </div>
+
+            <div class="space-y-4" id="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="bg-dark-900 border border-gray-800 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-white flex justify-between items-center hover:text-gold-400 transition-colors">
+                        <span>Apakah konsultasi bisa dilakukan secara Online?</span>
+                        <i class="fa-solid fa-chevron-down text-gold-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Ya, Ki Suro melayani konsultasi jarak jauh melalui WhatsApp Call / Video Call maupun Chat. Hasil dan energi penyelarasan tetap efektif tanpa mengurangi kualitas ikhtiar batin.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-dark-900 border border-gray-800 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-white flex justify-between items-center hover:text-gold-400 transition-colors">
+                        <span>Apakah privasi dan kerahasiaan nama saya aman?</span>
+                        <i class="fa-solid fa-chevron-down text-gold-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Sangat aman. Privasi, keluhan, dan nama Anda dijamin 100% dirahasiakan oleh Ki Suro dan tim Padepokan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-dark-900 border border-gray-800 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-white flex justify-between items-center hover:text-gold-400 transition-colors">
+                        <span>Apakah ada pantangan atau risiko negatif?</span>
+                        <i class="fa-solid fa-chevron-down text-gold-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Metode yang digunakan Ki Suro adalah syariat dan pengolahan energi murni tanpa menggunakan pesugihan atau persekutuan jahat. Tanpa pantangan yang memberatkan dan aman bagi semua keyakinan.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-dark-900 border border-gray-800 rounded-xl overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left font-semibold text-white flex justify-between items-center hover:text-gold-400 transition-colors">
+                        <span>Bagaimana cara melakukan pembayaran mahar?</span>
+                        <i class="fa-solid fa-chevron-down text-gold-400 transition-transform"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 pb-4 text-xs sm:text-sm text-gray-400 leading-relaxed border-t border-gray-800/50 pt-3">
+                        Pembayaran mahar dapat dilakukan secara tunai di lokasi Padepokan atau via Transfer Bank resmi setelah Anda mengonfirmasi pilihan paket melalui WhatsApp.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation / Booking Form Section -->
+    <section id="reservasi" class="py-20 bg-dark-900 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <div class="bg-dark-800 border-2 border-gold-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-40 h-40 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+                <div class="text-center mb-8">
+                    <span class="text-xs uppercase font-bold text-gold-400 tracking-widest">Formulir Reservasi Konsultasi</span>
+                    <h2 class="font-heading text-2xl sm:text-4xl font-bold text-white mt-1">
+                        Jadwalkan Sesi Konsultasi Anda
+                    </h2>
+                    <p class="text-xs sm:text-sm text-gray-400 mt-2">
+                        Isi form di bawah ini untuk terhubung langsung ke WhatsApp Ki Suro dengan format pesan rapi.
+                    </p>
+                </div>
+
+                <form id="wa-booking-form" onsubmit="sendToWhatsApp(event)" class="space-y-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Nama Lengkap *</label>
+                            <input type="text" id="form-name" required placeholder="Contoh: Budi Santoso" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:border-gold-500 focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Kota Dominan / Domisili *</label>
+                            <input type="text" id="form-city" required placeholder="Contoh: Jakarta Selatan" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:border-gold-500 focus:outline-none">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Pilihan Paket *</label>
+                            <select id="form-package" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:border-gold-500 focus:outline-none">
+                                <option value="Paket SILVER - Rp 1.350.000">Paket SILVER (Buka Aura & Ruwatan) - Rp 1.350.000</option>
+                                <option value="Paket GOLD - Rp 2.500.000" selected>Paket GOLD (Pelaris Usaha) - Rp 2.500.000 (Recommended)</option>
+                                <option value="Paket PLATINUM VIP - Rp 2.999.000">Paket PLATINUM VIP - Rp 2.999.000</option>
+                                <option value="Konsultasi Custom / Belum Yakin">Konsultasi Custom / Khusus</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Metode Pertemuan *</label>
+                            <select id="form-method" class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:border-gold-500 focus:outline-none">
+                                <option value="Online Chat / Call WA">Online via WhatsApp</option>
+                                <option value="Tatap Muka di Padepokan">Tatap Muka di Padepokan</option>
+                                <option value="Kunjungan Lokasi Khusus">Kunjungan Lokasi (Khusus Gold/VIP)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase mb-2">Ringkasan Keluhan / Keinginan Anda *</label>
+                        <textarea id="form-message" rows="4" required placeholder="Tuliskan secara singkat masalah yang ingin dibantu oleh Ki Suro..." class="w-full bg-dark-900 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white focus:border-gold-500 focus:outline-none"></textarea>
+                    </div>
+
+                    <button type="submit" class="w-full bg-gold-gradient text-dark-900 font-bold py-4 rounded-xl text-sm uppercase tracking-wider hover:opacity-90 transition-all shadow-xl shadow-gold-500/20 flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i>
+                        <span>Kirim Pesan & Konsultasi Sekarang</span>
+                    </button>
+                    
+                    <p class="text-[11px] text-gray-500 text-center">
+                        *Dengan mengklik tombol di atas, Anda akan diarahkan ke WhatsApp resmi Ki Suro. Kerahasiaan data Anda terjamin.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-dark-900 text-gray-400 border-t border-gray-800 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+                <!-- Col 1 -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full border border-gold-500 flex items-center justify-center bg-dark-800 text-gold-500">
+                            <i class="fa-solid fa-yin-yang"></i>
+                        </div>
+                        <span class="font-heading font-extrabold text-xl tracking-wider text-gold-gradient">KI SURO</span>
+                    </div>
+                    <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-6 max-w-md">
+                        Padepokan Metafisika & Bimbingan Spiritual Nusantara. Solusi bijak, amanah, dan teruji untuk keharmonisan hidup, karir, bisnis, dan ketenangan batin Anda.
+                    </p>
+                    <div class="flex gap-4 text-gold-400">
+                        <a href="#" class="w-9 h-9 rounded-full bg-dark-800 border border-gray-800 flex items-center justify-center hover:border-gold-500 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-dark-800 border border-gray-800 flex items-center justify-center hover:border-gold-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-dark-800 border border-gray-800 flex items-center justify-center hover:border-gold-500 transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-full bg-dark-800 border border-gray-800 flex items-center justify-center hover:border-gold-500 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2 -->
+                <div>
+                    <h4 class="font-heading text-sm font-bold text-white uppercase tracking-wider mb-4">Layanan Utama</h4>
+                    <ul class="text-xs space-y-2.5">
+                        <li><a href="#layanan" class="hover:text-gold-400 transition-colors">Buka Aura & Ruwatan</a></li>
+                        <li><a href="#layanan" class="hover:text-gold-400 transition-colors">Pelaris Dagang & Usaha</a></li>
+                        <li><a href="#layanan" class="hover:text-gold-400 transition-colors">Keharmonisan Asmara</a></li>
+                        <li><a href="#layanan" class="hover:text-gold-400 transition-colors">Pembersihan Rumah / Ruko</a></li>
+                        <li><a href="#layanan" class="hover:text-gold-400 transition-colors">Pengasihan & Pemikat Batin</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 -->
+                <div>
+                    <h4 class="font-heading text-sm font-bold text-white uppercase tracking-wider mb-4">Jam Praktik Padepokan</h4>
+                    <ul class="text-xs space-y-2 text-gray-400">
+                        <li class="flex justify-between py-1 border-b border-gray-800">
+                            <span>Senin - Jumat:</span>
+                            <span class="text-gold-300">09:00 - 21:00 WIB</span>
+                        </li>
+                        <li class="flex justify-between py-1 border-b border-gray-800">
+                            <span>Sabtu - Minggu:</span>
+                            <span class="text-gold-300">10:00 - 18:00 WIB</span>
+                        </li>
+                        <li class="text-[11px] text-gray-500 pt-2">
+                            *Konsultasi Tatap Muka wajib reservasi jadwal H-1.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p>&copy; 2026 Padepokan Ki Suro. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:text-gold-400">Kebijakan Privasi</a>
+                    <span>&bull;</span>
+                    <a href="#" class="hover:text-gold-400">Syarat & Ketentuan</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Live Online Users Counter -->
+    <div id="live-users-widget" class="fixed bottom-6 left-6 z-50 bg-dark-900/90 backdrop-blur-md border border-gold-500/40 rounded-full px-4 py-2.5 shadow-2xl flex items-center gap-3 transition-all duration-300 hover:scale-105 border-gold-glow">
+        <div class="relative flex items-center justify-center">
+            <span class="w-3 h-3 bg-emerald-500 rounded-full animate-ping absolute"></span>
+            <span class="w-2.5 h-2.5 bg-emerald-400 rounded-full relative"></span>
+        </div>
+        <div class="flex items-center gap-2 text-xs">
+            <i class="fa-solid fa-users text-gold-400"></i>
+            <span class="text-gray-300 font-medium hidden sm:inline">Pengunjung Online:</span>
+            <span id="live-online-count" class="font-heading font-bold text-gold-300 text-sm tracking-wide">862</span>
+            <span class="text-[9px] bg-emerald-500/20 text-emerald-400 font-bold px-1.5 py-0.5 rounded uppercase tracking-wider">Live</span>
+        </div>
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6285696181933?text=Halo%20Ki%20Suro%2C%20saya%20ingin%20konsultasi%20spiritual%20dan%20bertanya%20mengenai%20layanan%20padepokan." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 sm:px-5 sm:py-3.5 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 group border border-emerald-400/40"
+       aria-label="Chat via WhatsApp">
+        <div class="relative flex items-center justify-center">
+            <i class="fa-brands fa-whatsapp text-2xl sm:text-3xl"></i>
+            <span class="absolute -top-1 -right-1 w-3 h-3 bg-emerald-400 rounded-full animate-ping"></span>
+            <span class="absolute -top-1 -right-1 w-3 h-3 bg-emerald-300 rounded-full"></span>
+        </div>
+        <div class="hidden sm:block text-left">
+            <span class="block text-[10px] font-semibold text-emerald-100 uppercase tracking-wider leading-none">Online Sekarang</span>
+            <span class="block text-xs font-bold leading-tight mt-0.5">Konsultasi WhatsApp</span>
+        </div>
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Pricing Filters Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const pkgCards = document.querySelectorAll('.pkg-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gold-500', 'text-dark-900');
+                    b.classList.add('bg-dark-700', 'text-gray-300');
+                });
+
+                btn.classList.add('active', 'bg-gold-500', 'text-dark-900');
+                btn.classList.remove('bg-dark-700', 'text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                pkgCards.forEach(card => {
+                    if (filter === 'all' || card.classList.contains(filter)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // FAQ Accordion
+        const faqBtns = document.querySelectorAll('.faq-btn');
+
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const icon = btn.querySelector('i');
+
+                // Toggle visibility
+                content.classList.toggle('hidden');
+                
+                // Toggle icon rotate
+                if (content.classList.contains('hidden')) {
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+
+        // Package Selector to Scroll & Fill Form
+        function selectPackage(packageName) {
+            const formPkg = document.getElementById('form-package');
+            formPkg.value = packageName;
+            
+            const reservasiSec = document.getElementById('reservasi');
+            reservasiSec.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Estimator Dynamic Recommendation
+        const estFocus = document.getElementById('est-focus');
+        const estMethod = document.getElementById('est-method');
+        const estPkgName = document.getElementById('est-pkg-name');
+        const estPkgPrice = document.getElementById('est-pkg-price');
+
+        function updateRecommendation() {
+            const focus = estFocus.value;
+            const method = estMethod.value;
+
+            if (method === 'kunjungan' || focus === 'tempat') {
+                estPkgName.textContent = 'PAKET PLATINUM VIP (Metafisika & Kunjungan Khusus)';
+                estPkgPrice.textContent = 'Estimasi Mahar: Rp 2.999.000';
+            } else if (focus === 'bisnis') {
+                estPkgName.textContent = 'PAKET GOLD (Pelaris Usaha & Rezeki)';
+                estPkgPrice.textContent = 'Estimasi Mahar: Rp 2.500.000';
+            } else {
+                estPkgName.textContent = 'PAKET SILVER (Ruwatan & Buka Aura Diri)';
+                estPkgPrice.textContent = 'Estimasi Mahar: Rp 1.350.000';
+            }
+        }
+
+        estFocus.addEventListener('change', updateRecommendation);
+        estMethod.addEventListener('change', updateRecommendation);
+
+        function applyEstimatedPackage() {
+            const currentPkgText = estPkgName.textContent;
+            let targetValue = 'Paket SILVER - Rp 1.350.000';
+
+            if (currentPkgText.includes('GOLD')) {
+                targetValue = 'Paket GOLD - Rp 2.500.000';
+            } else if (currentPkgText.includes('PLATINUM')) {
+                targetValue = 'Paket PLATINUM VIP - Rp 2.999.000';
+            } else {
+                targetValue = 'Paket SILVER - Rp 1.350.000';
+            }
+
+            selectPackage(targetValue);
+        }
+
+        // Send Form directly to WhatsApp
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('form-name').value.trim();
+            const city = document.getElementById('form-city').value.trim();
+            const pkg = document.getElementById('form-package').value;
+            const method = document.getElementById('form-method').value;
+            const message = document.getElementById('form-message').value.trim();
+
+            const phoneNumber = "6285696181933"; // Nomor WhatsApp resmi Ki Suro
+
+            const text = `*FORMULIR RESERVASI KONSULTASI KI SURO*\n\n` +
+                         `*Nama Lengkap:* ${name}\n` +
+                         `*Kota Domisili:* ${city}\n` +
+                         `*Paket Diminati:* ${pkg}\n` +
+                         `*Metode Pertemuan:* ${method}\n\n` +
+                         `*Ringkasan Masalah/Keluhan:*\n"${message}"\n\n` +
+                         `Mohon info ketersediaan jadwal konsultasi Ki Suro. Terima kasih.`;
+
+            const encodedText = encodeURIComponent(text);
+            const waUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+            window.open(waUrl, '_blank');
+        }
+
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('#bg-slideshow .bg-slide');
+        const thumbItems = document.querySelectorAll('.thumb-item');
+
+        const guruPhotosList = [
+            'https://iili.io/CvwxC57.jpg',
+            'https://iili.io/CvwxBJS.jpg',
+            'https://iili.io/Cvwxfg2.jpg',
+            'https://iili.io/Cvwxne9.jpg',
+            'https://iili.io/Cvwxobe.jpg',
+            'https://iili.io/Cvwxzzu.jpg'
+        ];
+
+        function changeGuruPhoto(index) {
+            const guruPhoto = document.getElementById('guru-photo');
+            if (guruPhoto && guruPhotosList[index]) {
+                guruPhoto.src = guruPhotosList[index];
+            }
+            const guruThumbs = document.querySelectorAll('.guru-thumb');
+            guruThumbs.forEach((thumb, idx) => {
+                if (idx === index) {
+                    thumb.classList.add('border-2', 'border-gold-500', 'scale-110');
+                    thumb.classList.remove('border-gold-500/30');
+                } else {
+                    thumb.classList.remove('border-2', 'border-gold-500', 'scale-110');
+                    thumb.classList.add('border-gold-500/30');
+                }
+            });
+        }
+
+        function updateActiveThumb() {
+            thumbItems.forEach((item, idx) => {
+                if (idx === currentSlideIndex) {
+                    item.classList.add('border-gold-400', 'ring-2', 'ring-gold-400', 'scale-105');
+                    item.classList.remove('border-gold-500/30');
+                } else {
+                    item.classList.remove('border-gold-400', 'ring-2', 'ring-gold-400', 'scale-105');
+                    item.classList.add('border-gold-500/30');
+                }
+            });
+        }
+
+        function switchBgSlide(index) {
+            if (slides.length === 0) return;
+            slides[currentSlideIndex].classList.remove('opacity-100');
+            slides[currentSlideIndex].classList.add('opacity-0');
+
+            currentSlideIndex = index;
+
+            slides[currentSlideIndex].classList.remove('opacity-0');
+            slides[currentSlideIndex].classList.add('opacity-100');
+
+            updateActiveThumb();
+            changeGuruPhoto(index);
+        }
+
+        // Carousel Controls (Next / Prev buttons)
+        const thumbCarousel = document.getElementById('thumb-carousel');
+        const carouselPrev = document.getElementById('carousel-prev');
+        const carouselNext = document.getElementById('carousel-next');
+
+        if (carouselPrev && carouselNext && thumbCarousel) {
+            carouselPrev.addEventListener('click', () => {
+                thumbCarousel.scrollBy({ left: -220, behavior: 'smooth' });
+            });
+            carouselNext.addEventListener('click', () => {
+                thumbCarousel.scrollBy({ left: 220, behavior: 'smooth' });
+            });
+        }
+
+        // Auto-Play Slideshow
+        if (slides.length > 0) {
+            updateActiveThumb();
+            setInterval(() => {
+                switchBgSlide((currentSlideIndex + 1) % slides.length);
+            }, 5000); // Berganti otomatis setiap 5 detik
+        }
+
+        // Live Online Counter Logic (Fluctuates between 862 and 2172)
+        const onlineCountEl = document.getElementById('live-online-count');
+        if (onlineCountEl) {
+            // Start around lower-middle boundary
+            let currentOnlineUsers = Math.floor(Math.random() * (1200 - 862 + 1)) + 862;
+            
+            function updateOnlineUsers() {
+                // Random change between -35 and +45
+                const change = Math.floor(Math.random() * 81) - 35;
+                currentOnlineUsers += change;
+                
+                // Strictly clamp between 862 and 2172
+                if (currentOnlineUsers < 862) currentOnlineUsers = 862 + Math.floor(Math.random() * 35);
+                if (currentOnlineUsers > 2172) currentOnlineUsers = 2172 - Math.floor(Math.random() * 40);
+                
+                // Format display with Indonesian dot separator (e.g. 1.482)
+                onlineCountEl.textContent = currentOnlineUsers.toLocaleString('id-ID');
+            }
+            
+            // Initial setting
+            onlineCountEl.textContent = currentOnlineUsers.toLocaleString('id-ID');
+            
+            // Update every 3.5 seconds
+            setInterval(updateOnlineUsers, 3500);
+        }
+    </script>
+</body>
+</html>
